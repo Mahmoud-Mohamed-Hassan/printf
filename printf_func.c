@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * _printf - prints anything
+ * @format: the format string
+ *
+ * Return: number of bytes printed
+ */
+
 int _printf(const char *format, ...)
 {
 	int no_of_char = 0;
@@ -27,6 +34,7 @@ int _printf(const char *format, ...)
 		else if (*format == 'c')
 		{
 			char c = va_arg(arguments_list, int);
+
 			write(1, &c, 1);
 			no_of_char++;
 		}
