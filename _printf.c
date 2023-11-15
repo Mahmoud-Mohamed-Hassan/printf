@@ -12,9 +12,9 @@ int _printf(const char *format, ...)
 	int no_of_char = 0;
 	va_list arguments_list;
 
-	if (format == '\0')
+	if (format == NULL)
 		return (-1);
-	va_start(arguments_list, format)
+	va_start(arguments_list, format);
 		while (*format)
 		{
 			if (*format != '%')
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 				format++;
 				if (*format == '%')
 				{
-					write(1, format, 1;)
+					write(1, format, 1);
 						no_of_char++;
 				}
 				else if (*format == 'c')
@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 				}
 				else if (*format == 's')
 				{
-					char *ptrToString = va_arg(argumentslist, char *);
+					char *ptrToString = va_arg(arguments_list, char *);
 						write(1, ptrToString, strlen(ptrToString));
 							no_of_char += strlen(ptrToString);
 				}
