@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * print_numbers_i - prints the integrs
+ * @v: va list
+ * Return: i
+ */
 int print_numbers_i(va_list v)
 {
 	int n = va_arg(v, int);
@@ -36,6 +40,11 @@ int print_numbers_i(va_list v)
 	_putchar(last_number + '0');
 	return (i);
 }
+/**
+ * print_numbers_d - prints the decimals
+ * @v: va list
+ * Return: i
+ */
 int print_numbers_d(va_list v)
 {
 	int n = va_arg(v, int);
