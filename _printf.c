@@ -9,7 +9,7 @@
 
 int _printf(const char *format, ...)
 {
-	int no_of_char = 0;
+	int no_of_char = 0, s_return = 0, d_return = 0, i_return = 0;
 	va_list arguments_list;
 
 	if (format == NULL)
@@ -27,18 +27,17 @@ int _printf(const char *format, ...)
 				{write(1, format, 1);
 				no_of_char++; }
 				else if (*format == 'c')
-				{char letter = va_arg(arguments_list, int);
-						write(1, &letter, 1);
-							no_of_char++; }
+				{c_return = print_char(arguments_list);
+					no_of_char += c_return; }
 				else if (*format == 's')
-				{char *ptrToString = va_arg(arguments_list, char *);
-					if (ptrToString == NULL)
-					{write(1, "(null)", 6);
-						no_of_char += 6; }
-					else
-					{write(1, ptrToString, strlen(ptrToString));
-							no_of_char += strlen(ptrToString); }
-				}
+				{s_return = print_string(arguments_list);
+				no_of_char += s_return; }
+					else if (*format == 'd')
+					{d_return = print_numbers_d(arguments_list);
+						no_of_char += d_return; }
+					else if (*format == 'i')
+					{i_return = print_numbers_i(arguments_list);
+							no_of_char += i_return; }
 			}
 			format++;
 		}
